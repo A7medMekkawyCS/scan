@@ -9,6 +9,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.get('/', (req, res) => {
+  res.send('API is working!');
+});
 
 mongoose.connect("mongodb://127.0.0.1:27017/myDatabase", {
   useNewUrlParser: true,
@@ -66,5 +69,5 @@ app.post("/api/login", async (req, res) => {
 });
 
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8002;
 app.listen(PORT, () => console.log(` Server running on port ${PORT}`));
